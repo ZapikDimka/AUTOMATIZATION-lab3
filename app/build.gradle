@@ -1,0 +1,31 @@
+plugins {
+    id 'application'
+}
+
+application {
+    mainClassName = 'com.example.app.Main'
+}
+
+dependencies {
+    implementation project(':library')
+    implementation project(':util')
+}
+
+tasks.register('checkFileExists') {
+    doLast {
+        def file = file('path/to/your/file.txt')
+        if (file.exists()) {
+            println 'File exists.'
+        } else {
+            println 'File does not exist.'
+        }
+    }
+}
+
+tasks.register('customBuildTask') {
+    dependsOn 'build'
+
+    doLast {
+        println 'Custom build task completed.'
+    }
+}

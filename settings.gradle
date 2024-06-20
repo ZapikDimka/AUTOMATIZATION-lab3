@@ -1,0 +1,9 @@
+rootProject.name = 'Task3'
+
+include 'app'
+include 'library'
+include 'util'
+include 'app'
+include 'library'
+include 'util'
+
