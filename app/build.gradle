@@ -13,7 +13,7 @@ dependencies {
 
 tasks.register('checkFileExists') {
     doLast {
-        def file = file('path/to/your/file.txt')
+        def file = file('input.txt')
         if (file.exists()) {
             println 'File exists.'
         } else {
@@ -21,9 +21,11 @@ tasks.register('checkFileExists') {
         }
     }
 }
-
+tasks.named("build") {
+    dependsOn("checkFileExists")
+    dependsOn("customBuildTask")
+}
 tasks.register('customBuildTask') {
-    dependsOn 'build'
 
     doLast {
         println 'Custom build task completed.'
